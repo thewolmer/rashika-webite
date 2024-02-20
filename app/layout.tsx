@@ -1,4 +1,4 @@
-import { Inter } from 'next/font/google';
+import localFont from 'next/font/local';
 
 import { siteConfig } from '@/config/site';
 
@@ -6,7 +6,25 @@ import type { Metadata } from 'next';
 
 import './globals.css';
 
-const inter = Inter({ subsets: ['latin'] });
+const gerbil = localFont({
+  src: './fonts/Gerbil/gerbil.otf',
+  variable: '--font-gerbil',
+  display: 'swap',
+});
+const goudy = localFont({
+  src: [
+    {
+      path: './fonts/Goudy/OFLgoudy.otf',
+      style: 'normal',
+    },
+    {
+      path: './fonts/Goudy/OFLgoudyItalic.ttf',
+      style: 'italic',
+    },
+  ],
+  variable: '--font-goudy',
+  display: 'swap',
+});
 
 export const metadata: Metadata = {
   title: {
@@ -55,7 +73,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className={`${gerbil.variable} ${goudy.variable}`}>{children}</body>
     </html>
   );
 }
