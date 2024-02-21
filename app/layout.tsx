@@ -1,5 +1,6 @@
 import localFont from 'next/font/local';
 
+import { Footer, Header } from '@/components/Layout';
 import { siteConfig } from '@/config/site';
 
 import type { Metadata } from 'next';
@@ -72,8 +73,12 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body className={`${gerbil.variable} ${goudy.variable}`}>{children}</body>
+    <html lang="en" className={`${gerbil.variable} ${goudy.variable} relative`}>
+      <body>
+        <Header />
+        {children}
+        <Footer />
+      </body>
     </html>
   );
 }
