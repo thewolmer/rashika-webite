@@ -1,9 +1,9 @@
-"use client";
+'use client';
 
-import NextImage, { ImageProps } from "next/image";
-import { useState } from "react";
+import NextImage, { ImageProps } from 'next/image';
+import { useState } from 'react';
 
-import { defaultFallbackImage } from "./FallbackImage";
+import { blurDataURL, defaultFallbackImage } from './FallbackImage';
 
 type Props = ImageProps & { alt: string; fallbackSrc?: string };
 export const Image = ({ src, fallbackSrc, className, ...rest }: Props) => {
@@ -21,6 +21,8 @@ export const Image = ({ src, fallbackSrc, className, ...rest }: Props) => {
       {...rest}
       src={imgFail ? (fallbackSrc ? fallbackSrc : defaultFallbackImage) : src}
       className={className}
+      placeholder="blur"
+      blurDataURL={blurDataURL}
       onError={() => {
         setImgFail(true);
       }}
