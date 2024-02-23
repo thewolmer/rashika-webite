@@ -2,6 +2,7 @@ import { Inconsolata } from 'next/font/google';
 import localFont from 'next/font/local';
 
 import { Footer, Header } from '@/components/Layout';
+import { Toaster } from '@/components/ui/sonner';
 import { siteConfig } from '@/config/site';
 
 import type { Metadata } from 'next';
@@ -86,6 +87,7 @@ export default function RootLayout({
         <Header />
         {children}
         <Footer />
+        <Toaster richColors position="top-center" />
       </body>
     </html>
   );
