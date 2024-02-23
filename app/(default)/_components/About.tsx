@@ -8,6 +8,7 @@ export const About = () => (
         src="/images/backgrounds/rarpule-bg.jpg"
         alt="rarpule-bg"
         width={1080}
+        priority
         height={720}
         style={{ objectFit: 'cover', objectPosition: 'center' }}
         className="h-full w-full opacity-90"
@@ -20,12 +21,13 @@ export const About = () => (
           alt="Profile Image"
           height={480}
           width={480}
+          priority
           className="w-64 rounded-lg shadow-2xl md:w-96"
         ></Image>
       </div>
       <div className="mx-10 space-y-2 rounded-lg bg-black/15 p-10 text-background shadow-2xl backdrop-blur-2xl md:w-1/2">
         <h2 className="font-gerbil text-3xl">👋 Hi! I&apos;m Rashika</h2>
-        <p className="font-goudy text-xl text-muted">
+        <p className="font-inconsolata text-xl text-muted">
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi eius quasi aspernatur quod? Aliquam mollitia
           delectus laboriosam quod corporis ipsa repellendus, numquam eius eveniet saepe illum labore officia vitae
         </p>

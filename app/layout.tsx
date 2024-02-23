@@ -1,3 +1,4 @@
+import { Inconsolata } from 'next/font/google';
 import localFont from 'next/font/local';
 
 import { Footer, Header } from '@/components/Layout';
@@ -6,6 +7,13 @@ import { siteConfig } from '@/config/site';
 import type { Metadata } from 'next';
 
 import './globals.css';
+
+const inconsolata = Inconsolata({
+  variable: '--font-inconsolata',
+  display: 'swap',
+  subsets: ['latin'],
+  weight: ['400'],
+});
 
 const gerbil = localFont({
   src: './fonts/Gerbil/gerbil.otf',
@@ -73,7 +81,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${gerbil.variable} ${goudy.variable} relative`}>
+    <html lang="en" className={`${gerbil.variable} ${goudy.variable} ${inconsolata.className} relative`}>
       <body>
         <Header />
         {children}

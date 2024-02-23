@@ -8,8 +8,8 @@ export const Landing = () => (
       <div className="w-full space-y-4 ">
         <h1 className="font-gerbil text-5xl md:text-9xl">Rashika</h1>
         <div className="flex items-center gap-2">
-          <div className="h-1 w-80 rounded bg-gradient-to-r from-purple-900 to-rose-900"></div>
-          <h2 className="px-1 font-goudy text-2xl  italic md:text-4xl">Artist, Host, Pagal</h2>
+          <div className="h-1 w-72 rounded bg-gradient-to-r from-purple-900 to-rose-900"></div>
+          <h2 className="font-inconsolata px-1 text-2xl  italic md:text-4xl">Artist, Host</h2>
         </div>
       </div>
     </div>

@@ -51,6 +51,7 @@ module.exports = {
         body: ['var(--font-inter)'],
         goudy: ['var(--font-goudy)'],
         gerbil: ['var(--font-gerbil)'],
+        inconsolata: ['var(--font-inconsolata)'],
       },
       borderRadius: {
         lg: 'var(--radius)',
