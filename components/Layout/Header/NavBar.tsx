@@ -22,7 +22,7 @@ const components: { title: string; href: string; description: string }[] = [
     description: 'Adorn your space with captivating wall art.',
   },
   {
-    title: 'Events',
+    title: 'Buy',
     href: '/',
     description: 'Experience unforgettable gatherings and celebrations.',
   },
@@ -86,16 +86,16 @@ export function NavBar() {
           </NavigationMenuContent>
         </NavigationMenuItem>
         <NavigationMenuItem>
-          <Link href="/store" legacyBehavior passHref>
+          <Link href="/events" legacyBehavior passHref>
             <NavigationMenuLink className={cn(navigationMenuTriggerStyle(), 'font-gerbil md:text-xl')}>
-              Store
+              Events
             </NavigationMenuLink>
           </Link>
         </NavigationMenuItem>
         <NavigationMenuItem>
-          <Link href="/store" legacyBehavior passHref>
+          <Link href="/contact" legacyBehavior passHref>
             <NavigationMenuLink className={cn(navigationMenuTriggerStyle(), 'font-gerbil md:text-xl')}>
-              Chat
+              Contact
             </NavigationMenuLink>
           </Link>
         </NavigationMenuItem>

@@ -4,6 +4,7 @@ export type SiteConfig = {
   url: string;
   ogImage: string;
   twitterHandle: string;
+  discordServerID: bigint;
   links: {
     twitter: string;
   };
