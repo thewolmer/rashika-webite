@@ -12,7 +12,7 @@ import './globals.css';
 export const metadata: Metadata = {
   title: {
     template: `%s | ${siteConfig.name}`,
-    default: `Tagline | ${siteConfig.name}`,
+    default: ` ${siteConfig.name}`,
     // TODO: "Add a tagline here",
   },
   description: siteConfig.description,
@@ -33,7 +33,7 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     creator: siteConfig.twitterHandle,
-    title: `Tagline | ${siteConfig.name}`,
+    title: `${siteConfig.name}`,
     // TODO: Add a tagline
     description: siteConfig.description,
     images: [
