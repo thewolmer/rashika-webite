@@ -56,18 +56,18 @@ export function NavBar() {
                     ></Image>
                     <div className="mb-2 mt-4 text-lg font-medium">About Rashika</div>
                     <p className="text-sm leading-tight text-muted-foreground">
-                      Learn More about me, my work and projects I've worked on.
+                      Learn More about me, my work and projects I&apos;ve worked on.
                     </p>
                   </a>
                 </NavigationMenuLink>
               </li>
-              <ListItem href="/docs" title="Biography">
+              <ListItem href="/biography" title="Biography">
                 Discover the stories behind it all in the Biography.
               </ListItem>
-              <ListItem href="/docs/installation" title="Gallery">
+              <ListItem href="/#gallery" title="Gallery">
                 Peek into my vibrant life through the Gallery.
               </ListItem>
-              <ListItem href="/docs/primitives/typography" title="Art">
+              <ListItem href="/work" title="Art">
                 Explore my artistic endeavors in the Art section.
               </ListItem>
             </ul>
