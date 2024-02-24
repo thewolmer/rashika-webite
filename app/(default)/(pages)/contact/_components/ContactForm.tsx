@@ -52,7 +52,7 @@ export const ContactForm = () => {
     setErrors(newErrors);
 
     if (Object.keys(newErrors).length > 0) {
-      toast.warning('Required Fields cant be left empty!');
+      toast.warning('Please fill the required fields!');
       return;
     }
 
@@ -131,7 +131,7 @@ export const ContactForm = () => {
               'mt-1 w-full rounded-md border p-2 text-sm shadow-sm',
               errors.phoneNumber ? 'border-destructive' : '',
             )}
-            placeholder="+91 747000123"
+            placeholder="+91747000123"
           />
         </div>
         <div className="col-span-6 sm:col-span-3">

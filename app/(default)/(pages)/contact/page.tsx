@@ -23,7 +23,7 @@ const page = () => (
             pointerEvents: `none`,
           }}
         ></div>
-        <div className="max-w-xl lg:max-w-3xl">
+        <div className="max-w-xl pt-10 lg:max-w-3xl">
           <h1 className="y-900 mt-6 text-2xl font-bold sm:text-3xl md:text-4xl">Send a Message 💬</h1>
           <ContactForm />
         </div>

@@ -2,8 +2,10 @@ import { Inconsolata } from 'next/font/google';
 import localFont from 'next/font/local';
 
 import { Footer, Header } from '@/components/Layout';
-import { Toaster } from '@/components/ui/sonner';
+import { FloatingNav } from '@/components/ui/floating-navbar';
 import { siteConfig } from '@/config/site';
+
+import Providers from './providers';
 
 import type { Metadata } from 'next';
 
@@ -82,12 +84,12 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${gerbil.variable} ${goudy.variable} ${inconsolata.className} relative`}>
-      <body>
+    <html lang="en">
+      <body className={`${gerbil.variable} ${goudy.variable} ${inconsolata.className} relative`}>
         <Header />
-        {children}
+        <FloatingNav />
+        <Providers>{children}</Providers>
         <Footer />
-        <Toaster richColors position="top-center" />
       </body>
     </html>
   );
