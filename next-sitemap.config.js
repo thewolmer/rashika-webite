@@ -1,5 +1,5 @@
 module.exports = {
-  siteUrl: "https://iaconlabs.com/",
+  siteUrl: 'https://rashika.art/',
   generateRobotsTxt: true,
-  exclude: ["/api*"],
+  exclude: ['/api*'],
 };
