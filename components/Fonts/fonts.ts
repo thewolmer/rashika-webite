@@ -17,11 +17,11 @@ export const gerbil = localFont({
 export const goudy = localFont({
   src: [
     {
-      path: './Goudy/OFLgoudy.otf',
+      path: './Goudy/OFLGoudy.otf',
       style: 'normal',
     },
     {
-      path: './Goudy/OFLgoudyItalic.ttf',
+      path: './Goudy/OFLGoudyItalic.ttf',
       style: 'italic',
     },
   ],
