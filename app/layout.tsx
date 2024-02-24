@@ -1,8 +1,8 @@
+import { gerbil, goudy, inconsolata } from '@/components/Fonts';
 import { Footer, Header } from '@/components/Layout';
 import { FloatingNav } from '@/components/ui/floating-navbar';
 import { siteConfig } from '@/config/site';
 
-import { gerbil, goudy, inconsolata } from './fonts';
 import Providers from './providers';
 
 import type { Metadata } from 'next';
