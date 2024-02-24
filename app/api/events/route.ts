@@ -3,13 +3,13 @@ import { Client } from '@notionhq/client';
 import { NextRequest, NextResponse } from 'next/server';
 
 const notionSecret = process.env.DB_SECRET;
-const galleryDb = process.env.DB_GALLERY_ID;
+const eventsDb = process.env.DB_EVENTS_ID;
 
 const notion = new Client({ auth: notionSecret });
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 export async function GET(req: NextRequest, res: NextResponse) {
-  if (!notionSecret || !galleryDb) {
+  if (!notionSecret || !eventsDb) {
     return NextResponse.json(
       { error: { code: 406, message: 'Credentials not found' }, success: false },
       { status: 406 },
@@ -17,7 +17,7 @@ export async function GET(req: NextRequest, res: NextResponse) {
   }
   try {
     const query = await notion.databases.query({
-      database_id: galleryDb,
+      database_id: eventsDb,
       filter: {
         property: 'deployment_status',
         status: {
@@ -26,7 +26,7 @@ export async function GET(req: NextRequest, res: NextResponse) {
       },
       sorts: [
         {
-          property: 'Name',
+          property: 'date',
           direction: 'ascending',
         },
       ],
