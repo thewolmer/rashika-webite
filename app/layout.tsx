@@ -1,42 +1,13 @@
-import { Inconsolata } from 'next/font/google';
-import localFont from 'next/font/local';
-
 import { Footer, Header } from '@/components/Layout';
 import { FloatingNav } from '@/components/ui/floating-navbar';
 import { siteConfig } from '@/config/site';
 
+import { gerbil, goudy, inconsolata } from './fonts';
 import Providers from './providers';
 
 import type { Metadata } from 'next';
 
 import './globals.css';
-
-const inconsolata = Inconsolata({
-  variable: '--font-inconsolata',
-  display: 'swap',
-  subsets: ['latin'],
-  weight: ['400'],
-});
-
-const gerbil = localFont({
-  src: './fonts/Gerbil/gerbil.otf',
-  variable: '--font-gerbil',
-  display: 'swap',
-});
-const goudy = localFont({
-  src: [
-    {
-      path: './fonts/Goudy/OFLgoudy.otf',
-      style: 'normal',
-    },
-    {
-      path: './fonts/Goudy/OFLgoudyItalic.ttf',
-      style: 'italic',
-    },
-  ],
-  variable: '--font-goudy',
-  display: 'swap',
-});
 
 export const metadata: Metadata = {
   title: {

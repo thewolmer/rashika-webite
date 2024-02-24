@@ -3,6 +3,9 @@ const nextConfig = {
   reactStrictMode: false,
   swcMinify: true,
   output: 'standalone',
+  experimental: {
+    missingSuspenseWithCSRBailout: false,
+  },
   eslint: {
     ignoreDuringBuilds: true,
   },

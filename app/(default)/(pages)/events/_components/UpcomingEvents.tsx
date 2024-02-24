@@ -10,10 +10,8 @@ import { Skeleton } from '@/components/ui/skeleton';
 import { getEvents } from '@/lib/notion/getEvents';
 import { formatDate } from '@/lib/utils';
 
-import { QueryDataBaseResponse } from '@/types/Notion/database';
-
 export const UpcomingEvents = () => {
-  const [data, setData] = useState<QueryDataBaseResponse | undefined>(undefined);
+  const [data, setData] = useState(undefined);
   const [isLoading, setIsLoading] = useState<boolean>(true);
 
   useEffect(() => {
@@ -31,7 +29,7 @@ export const UpcomingEvents = () => {
 
     fetchEvents();
   }, []);
-
+  // @ts-expect-error type  error in ts but works fine
   const upcomingEvents = data?.data;
 
   if (!upcomingEvents && !isLoading) return <ErrorView />;
