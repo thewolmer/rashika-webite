@@ -1,4 +1,3 @@
-'use server';
 import { Client } from '@notionhq/client';
 import { NextRequest, NextResponse } from 'next/server';
 
@@ -40,3 +39,5 @@ export async function GET(req: NextRequest, res: NextResponse) {
     );
   }
 }
+
+export const dynamic = 'force-dynamic';
