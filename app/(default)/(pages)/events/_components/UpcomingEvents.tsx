@@ -1,6 +1,7 @@
 'use client';
 import React, { useEffect, useState } from 'react';
 import { HiOutlineArrowUpRight } from 'react-icons/hi2';
+import { MdOutlineEventNote } from 'react-icons/md';
 
 import { Reveal } from '@/components/Animation/Reveal';
 import { ErrorView } from '@/components/Error';
@@ -60,58 +61,66 @@ export const UpcomingEvents = () => {
                 ))}
               </div>
             ) : (
-              <div className="grid gap-4 md:grid-cols-3">
-                {upcomingEvents.map((event, index) => {
-                  if (event.properties.date.date?.start) {
-                    const date = formatDate(event.properties.date.date.start);
-                    return (
-                      <div
-                        key={index}
-                        className="w-full rounded-xl border p-5 shadow-xl transition-shadow duration-150 hover:shadow-2xl"
-                      >
-                        <div className="flex h-full items-start">
-                          <div className="flex w-12 flex-shrink-0 flex-col text-center leading-none">
-                            <span className="mb-2 border-b-2  pb-2 ">{date.day}</span>
-                            <span className="title-font text-lg font-medium leading-none">{date.month}</span>
-                          </div>
-                          <div className="flex-grow pl-6">
-                            {event.properties.mode.select.name && (
-                              <h2 className="mb-1 text-sm font-extrabold tracking-widest text-primary">
-                                {event.properties.mode.select.name} Event
-                              </h2>
-                            )}
-                            {event.properties.name.title[0] && (
-                              <h4 className="title-font mb-3 text-xl font-medium">
-                                {event.properties.name.title[0].plain_text}
-                              </h4>
-                            )}
-                            {event.properties.description.rich_text[0] && (
-                              <p className="mb-5 leading-relaxed">
-                                {event.properties.description.rich_text[0].plain_text.length > 200
-                                  ? `${event.properties.description.rich_text[0].plain_text.slice(0, 200)}...`
-                                  : event.properties.description.rich_text[0].plain_text}
-                              </p>
-                            )}
-                            {event.properties.destination_url.rich_text[0] ? (
-                              <Link href={event.properties.destination_url.rich_text[0].plain_text} className="group">
-                                <Button variant={'outline'}>
-                                  Server Link{' '}
-                                  <HiOutlineArrowUpRight className="ml-2 transition-transform duration-200 group-hover:-translate-y-1 group-hover:translate-x-1" />
-                                </Button>
-                              </Link>
-                            ) : (
-                              <Link className="group pointer-events-none opacity-70">
-                                <Button variant={'outline'}>
-                                  Link <HiOutlineArrowUpRight className="ml-2 opacity-70" />
-                                </Button>
-                              </Link>
-                            )}
+              <div className="w-full">
+                <div className="grid gap-4 md:grid-cols-3">
+                  {upcomingEvents.map((event, index) => {
+                    if (event.properties.date.date?.start) {
+                      const date = formatDate(event.properties.date.date.start);
+                      return (
+                        <div
+                          key={index}
+                          className="w-full rounded-xl border p-5 shadow-xl transition-shadow duration-150 hover:shadow-2xl"
+                        >
+                          <div className="flex h-full items-start">
+                            <div className="flex w-12 flex-shrink-0 flex-col text-center leading-none">
+                              <span className="mb-2 border-b-2  pb-2 ">{date.day}</span>
+                              <span className="title-font text-lg font-medium leading-none">{date.month}</span>
+                            </div>
+                            <div className="flex-grow pl-6">
+                              {event.properties.mode.select.name && (
+                                <h2 className="mb-1 text-sm font-extrabold tracking-widest text-primary">
+                                  {event.properties.mode.select.name} Event
+                                </h2>
+                              )}
+                              {event.properties.name.title[0] && (
+                                <h4 className="title-font mb-3 text-xl font-medium">
+                                  {event.properties.name.title[0].plain_text}
+                                </h4>
+                              )}
+                              {event.properties.description.rich_text[0] && (
+                                <p className="mb-5 leading-relaxed">
+                                  {event.properties.description.rich_text[0].plain_text.length > 200
+                                    ? `${event.properties.description.rich_text[0].plain_text.slice(0, 200)}...`
+                                    : event.properties.description.rich_text[0].plain_text}
+                                </p>
+                              )}
+                              {event.properties.destination_url.rich_text[0] ? (
+                                <Link href={event.properties.destination_url.rich_text[0].plain_text} className="group">
+                                  <Button variant={'outline'}>
+                                    Server Link{' '}
+                                    <HiOutlineArrowUpRight className="ml-2 transition-transform duration-200 group-hover:-translate-y-1 group-hover:translate-x-1" />
+                                  </Button>
+                                </Link>
+                              ) : (
+                                <Link className="group pointer-events-none opacity-70">
+                                  <Button variant={'outline'}>
+                                    Link <HiOutlineArrowUpRight className="ml-2 opacity-70" />
+                                  </Button>
+                                </Link>
+                              )}
+                            </div>
                           </div>
                         </div>
-                      </div>
-                    );
-                  }
-                })}
+                      );
+                    }
+                  })}
+                </div>
+                {upcomingEvents.length === 0 && !isLoading && (
+                  <div className="flex h-full w-full flex-col gap-3 p-10">
+                    <MdOutlineEventNote className="text-2xl text-muted-foreground md:text-6xl" />
+                    <h3>No events scheduled yet.</h3>
+                  </div>
+                )}
               </div>
             )}
           </div>
