@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react';
 
 import { Reveal } from '@/components/Animation/Reveal';
 import { TextGenerateEffect } from '@/components/Animation/text-generate-effect';
+import { ErrorView } from '@/components/Error';
 import { Image } from '@/components/Image';
 import { Spinner } from '@/components/Spinner';
 import { Card } from '@/components/ui/card';
@@ -33,16 +34,18 @@ export const Gallery = () => {
   }, []);
   const galleryMedia = data?.data;
 
+  const GalleryHeader = () => (
+    <div className="w-full max-w-6xl space-y-3 px-5 ">
+      <h2 className="font-gerbil text-6xl md:text-8xl">Gallery</h2>
+      <TextGenerateEffect className="text-2xl italic md:text-4xl" words="The earth without art is just &#39;eh&#39;" />
+    </div>
+  );
+
   if (isLoading) {
     return (
       <section className="flex w-full flex-col items-center overflow-hidden py-20">
-        <div className="w-full max-w-6xl space-y-3 px-5 ">
-          <h2 className="font-gerbil text-6xl md:text-8xl">Gallery</h2>
-          <TextGenerateEffect
-            className="text-2xl italic md:text-4xl"
-            words="The earth without art is just &#39;eh&#39;"
-          />
-        </div>
+        <GalleryHeader />
+
         <div className="h-[50vh]">
           <Spinner />
         </div>
@@ -50,15 +53,20 @@ export const Gallery = () => {
     );
   }
 
+  if (!galleryMedia && !isLoading) {
+    return (
+      <section className="flex w-full flex-col items-center overflow-hidden py-20">
+        <GalleryHeader />
+        <div className="h-[50vh]">
+          <ErrorView />
+        </div>
+      </section>
+    );
+  }
+
   return (
     <section id="gallery" className="relative flex  w-full flex-col items-center overflow-hidden py-20">
-      <div className="w-full max-w-6xl space-y-3 px-5 ">
-        <h2 className="font-gerbil text-6xl md:text-8xl">Gallery</h2>
-        <TextGenerateEffect
-          className="text-2xl italic md:text-4xl"
-          words="The earth without art is just &#39;eh&#39;"
-        />
-      </div>
+      <GalleryHeader />
       <Reveal>
         <div className="p-10">
           <div className="columns-2 gap-4 space-y-4 p-4 md:columns-3 lg:columns-4">
